@@ -1,0 +1,37 @@
+{
+	"name": "@inrixia/neptune-plugins",
+	"description": "Plugins for Neptune writtern by @inrixia",
+	"scripts": {
+		"watch": "concurrently \"nodemon\" \"npm run serve\"",
+		"build": "node ./build.js",
+		"serve": "npx http-server --cors -p 443",
+		"postinstall": "node postinstall.js"
+	},
+	"devDependencies": {
+		"@types/node": "^20.14.12",
+		"concurrently": "^8.2.2",
+		"electron": "^31.3.0",
+		"esbuild": "^0.23.0",
+		"http-server": "^14.1.1",
+		"neptune-types": "^1.0.1",
+		"nodemon": "^3.1.4",
+		"typescript": "^5.5.4"
+	},
+	"dependencies": {
+		"@inrixia/helpers": "^2.0.11",
+		"@xhayper/discord-rpc": "^1.2.0",
+		"dasha": "^3.0.3",
+		"flac-stream-tagger": "^1.0.9",
+		"idb": "^8.0.0",
+		"music-metadata": "^10.0.0"
+	},
+	"nodemonConfig": {
+		"watch": [
+			"./plugins/*/src/**",
+			"./plugins/_lib/**"
+		],
+		"ext": "*",
+		"exec": "npm run build"
+	},
+	"packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e"
+}
